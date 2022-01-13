@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_room, only: :destroy
 
   def index
@@ -30,6 +30,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:name, :city, :rate, :type, :amenities, :picture, :user_id)
+    params.require(:room).permit(:name, :city, :rate, :room_type, :amenities, :picture, :user_id)
   end
 end
