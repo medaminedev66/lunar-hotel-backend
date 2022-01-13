@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_110454) do
     t.string "name"
     t.string "city"
     t.integer "rate"
-    t.string "type"
+    t.string "room_type"
     t.text "amenities"
     t.string "picture"
     t.bigint "user_id", null: false
