@@ -105,6 +105,7 @@ GEM
     parser (3.1.0.0)
       ast (~> 2.4.1)
     pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     puma (5.5.2)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -228,7 +229,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.3.4

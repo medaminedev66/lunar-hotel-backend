@@ -4,7 +4,7 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :city
       t.integer :rate
-      t.string :type
+      t.string :room_type
       t.text :amenities
       t.string :picture
       t.references :user, null: false, foreign_key: true
