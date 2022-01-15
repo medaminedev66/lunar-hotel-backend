@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :rooms, only: %i[create index show update destroy]
-      resources :reservations, only: %i[create index show update destroy]
+      resources :rooms, only: %i[index create destroy]
+      resources :reservations, only: %i[index create destroy]
     end
   end
 end
