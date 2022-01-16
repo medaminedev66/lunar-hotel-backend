@@ -5,8 +5,6 @@ class Api::V1::RoomsController < ApplicationController
     @rooms = current_user.rooms.all
   end
 
-  def show; end
-
   def create
     @room = current_user.rooms.new(room_params)
 
