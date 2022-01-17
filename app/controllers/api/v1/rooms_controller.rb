@@ -17,7 +17,7 @@ class Api::V1::RoomsController < ApplicationController
 
   def destroy
     if @room.destroy
-      render json: { message: "Room has been successfully deleted" }
+      render json: { message: 'Room has been successfully deleted' }
     else
       render json: @room.errors, status: :unprocessable_entity
     end
