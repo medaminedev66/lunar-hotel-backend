@@ -1,18 +1,15 @@
-class RoomsController < ApplicationController
-  # load_and_authorize_resource
+class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: :destroy
 
   def index
     @rooms = current_user.rooms.all
   end
 
-  def show; end
-
   def create
     @room = current_user.rooms.new(room_params)
 
     if @room.save
-      render :show, status: :created, location: @room
+      render :create, status: :created
     else
       render json: @room.errors, status: :unprocessable_entity
     end
