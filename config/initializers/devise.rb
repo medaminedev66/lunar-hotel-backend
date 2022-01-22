@@ -11,6 +11,7 @@
 Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.expiration_time = 1200
   end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
