@@ -2,7 +2,7 @@ class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: :destroy
 
   def index
-    @rooms = current_user.rooms.all
+    @rooms = Room.all
   end
 
   def create
@@ -30,6 +30,6 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:name, :city, :rate, :room_type, :amenities, :picture, :user_id)
+    params.require(:room).permit(:name, :city, :rate, :room_type, :amenities, :picture)
   end
 end
