@@ -9,4 +9,9 @@ RSpec.describe Room, type: :model do
       it { expect(room).to be_valid }
     end
   end
+
+  it 'should allow valid name' do
+    room.name = nil
+    expect(room).to_not be_valid
+  end
 end    
