@@ -8,7 +8,7 @@ class Api::V1::RoomsController < ApplicationController
   def create
     @room = current_user.rooms.new(room_params)
 
-    if @room.save
+    if @room.save!
       render :create, status: :created
     else
       render json: @room.errors, status: :unprocessable_entity
