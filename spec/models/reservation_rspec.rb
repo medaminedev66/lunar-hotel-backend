@@ -9,6 +9,20 @@ RSpec.describe Reservation, type: :model do
     context 'when valid' do
       it { expect(reservation).to be_valid }
     end
-    
+
+    it 'should allow valid nights' do
+    reservation.nights = nil
+    expect(reservation).to_not be_valid
+  end
+
+   it 'should allow valid nights' do
+      reservation.nights = 7
+      expect(reservation).to be_valid
+    end
+
+    it 'should allow valid nights' do
+      reservation.nights = 0
+      expect(reservation).to be_valid
+    end
   end
 end
