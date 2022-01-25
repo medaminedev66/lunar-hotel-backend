@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-  before_action :set_room, only: [:destroy, :show]
+  before_action :set_room, only: %i[destroy show]
 
   def index
     @rooms = current_user.rooms.all

@@ -1,6 +1,6 @@
 require 'swagger_helper'
-
 RSpec.describe 'api/v1/rooms', type: :request do
+  # rubocop: disable Metrics
   path '/api/v1/rooms' do
     get('list rooms') do
       security [bearer_auth: []]
@@ -123,4 +123,5 @@ RSpec.describe 'api/v1/rooms', type: :request do
       end
     end
   end
+  # rubocop: enable Metrics
 end
