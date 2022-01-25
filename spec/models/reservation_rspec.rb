@@ -34,5 +34,15 @@ RSpec.describe Reservation, type: :model do
       reservation.check_in = '2022-10-1'
       expect(reservation).to be_valid
     end
+
+    it 'should allow valid check out' do
+      reservation.check_out = nil
+      expect(reservation).to_not be_valid
+    end
+
+    it 'should allow valid check 0ut' do
+      reservation.check_out = '2022-10-15'
+      expect(reservation).to be_valid
+    end
   end
 end
