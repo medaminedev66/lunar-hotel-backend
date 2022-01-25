@@ -7,27 +7,12 @@ RSpec.describe Reservation, type: :model do
                 amenities: 'swimming pool')
   end
   let(:reservation) do
-    Reservation.create(nights: '5', check_in: '2022-02-1', check_out: '2022-02-6', room_id: room.id, user_id: user.id)
+    Reservation.create( check_in: '2022-02-01', check_out: '2022-02-06', room_id: room.id, user_id: user.id)
   end
 
   describe 'Validations' do
     context 'when valid' do
       it { expect(reservation).to be_valid }
-    end
-
-    it 'should allow valid nights' do
-      reservation.nights = nil
-      expect(reservation).to_not be_valid
-    end
-
-    it 'should allow valid nights' do
-      reservation.nights = 7
-      expect(reservation).to be_valid
-    end
-
-    it 'should allow valid nights' do
-      reservation.nights = 0
-      expect(reservation).to be_valid
     end
 
     it 'should allow valid check in' do
