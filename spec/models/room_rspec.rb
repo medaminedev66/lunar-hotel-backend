@@ -48,5 +48,20 @@ RSpec.describe Room, type: :model do
       room.picture = 'image.png'
       expect(room).to be_valid
     end
+
+    it 'should validate the city' do
+      room.city = nil
+      expect(room).to_not be_valid
+    end
+
+    it 'should validate the city' do
+      room.city = 'Tanger'
+      expect(room).to be_valid
+    end
+
+    it 'should validate the city' do
+      room.city = 'Tanger'*50
+      expect(room).to_not be_valid
+    end
   end
 end    
