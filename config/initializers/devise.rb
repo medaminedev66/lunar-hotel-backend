@@ -11,6 +11,7 @@
 Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = '46728fa36e32dd8ddb466ad9ca8d14426252e57d4f80badf4aa3950371cded117aefddac7077b07561215af75c92758db5790b23b5b2a978cdef077325d0cde7'
+    jwt.expiration_time = 2.weeks.to_i
   end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
