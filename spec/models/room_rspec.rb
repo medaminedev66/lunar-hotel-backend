@@ -73,5 +73,15 @@ RSpec.describe Room, type: :model do
       room.room_type = 'Master'
       expect(room).to be_valid
     end
+
+    it 'should validate the amenities' do
+      room.amenities = nil
+      expect(room).to_not be_valid
+    end
+
+    it 'should validate the amenities' do
+      room.amenities = 'Swimming pool, view'
+      expect(room).to be_valid
+    end
   end
 end    
