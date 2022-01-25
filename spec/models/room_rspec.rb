@@ -8,7 +8,6 @@ RSpec.describe Room, type: :model do
     context 'when valid' do
       it { expect(room).to be_valid }
     end
-  end
 
   it 'should allow valid name' do
     room.name = nil
@@ -20,6 +19,11 @@ RSpec.describe Room, type: :model do
       expect(room).to be_valid
     end
 
+    it 'should allow valid name' do
+      room.name = 'Apple'*50
+      expect(room).to_not be_valid
+    end
+
     it 'should validate rate' do
       room.rate = -5
       expect(room).to_not be_valid
@@ -29,4 +33,20 @@ RSpec.describe Room, type: :model do
       room.rate = 10
       expect(room).to be_valid
     end
+
+    it 'should validate rate' do
+      room.rate = 0
+      expect(room).to be_valid
+    end
+
+    it 'should validate the image link' do
+      room.picture = nil
+      expect(room).to_not be_valid
+    end
+
+    it 'should validate the image link' do
+      room.picture = 'image.png'
+      expect(room).to be_valid
+    end
+  end
 end    
