@@ -1,0 +1,147 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  "/api/v1/rooms":
+    get:
+      summary: list rooms
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: Logged Out
+        '401':
+          description: authentication failed
+    post:
+      summary: Creates a room
+      tags:
+      - Rooms
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '201':
+          description: successful
+        '422':
+          description: invalid request
+        '401':
+          description: authentication failed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                city:
+                  type: string
+                rate:
+                  type: integer
+                room_type:
+                  type: string
+                amenities:
+                  type: string
+                picture:
+                  type: string
+              required:
+              - name
+              - city
+              - rate
+              - room_type
+              - amenities
+              - picture
+  "/api/v1/rooms/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show room
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete room
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: delete room
+        '401':
+          description: authentication failed
+  "/users/signup":
+    post:
+      summary: create registration
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+  "/users/login":
+    post:
+      summary: create session
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/users/logout":
+    delete:
+      summary: delete session
+      security:
+      - bearer_auth: []
+      responses:
+        '201':
+          description: Logged Out
+        '401':
+          description: authentication failed
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
