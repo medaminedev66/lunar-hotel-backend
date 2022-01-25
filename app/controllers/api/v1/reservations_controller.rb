@@ -5,6 +5,10 @@ class Api::V1::ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
+  def show
+    render json: @reservation, status: :ok
+  end
+
   def create
     @reservation = current_user.reservations.new(reservation_params)
 
