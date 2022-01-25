@@ -3,6 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'devise/registrations', type: :request do
   path '/users/signup' do
     post('create registration') do
+      tags 'User Registration'
       consumes 'application/json'
       parameter name: :signup, in: :body, schema: {
         type: :object,

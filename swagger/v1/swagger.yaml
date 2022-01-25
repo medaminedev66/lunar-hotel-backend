@@ -13,6 +13,8 @@ paths:
   "/api/v1/rooms":
     get:
       summary: list rooms
+      tags:
+      - Rooms
       security:
       - bearer_auth: []
       responses:
@@ -23,7 +25,7 @@ paths:
         '401':
           description: authentication failed
     post:
-      summary: Creates a room
+      summary: create room
       tags:
       - Rooms
       security:
@@ -71,11 +73,15 @@ paths:
         type: string
     get:
       summary: show room
+      tags:
+      - Rooms
       responses:
         '200':
           description: successful
     delete:
       summary: delete room
+      tags:
+      - Rooms
       responses:
         '200':
           description: successful
@@ -86,6 +92,8 @@ paths:
   "/users/signup":
     post:
       summary: create registration
+      tags:
+      - User Registration
       parameters: []
       responses:
         '200':
@@ -109,6 +117,8 @@ paths:
   "/users/login":
     post:
       summary: create session
+      tags:
+      - Sessions
       parameters: []
       responses:
         '200':
@@ -131,6 +141,8 @@ paths:
   "/users/logout":
     delete:
       summary: delete session
+      tags:
+      - Sessions
       security:
       - bearer_auth: []
       responses:
