@@ -7,7 +7,7 @@ RSpec.describe Reservation, type: :model do
                 amenities: 'swimming pool')
   end
   let(:reservation) do
-    Reservation.create( check_in: '2022-02-01', check_out: '2022-02-06', room_id: room.id, user_id: user.id)
+    Reservation.create(check_in: '2022-02-01', check_out: '2022-02-06', room_id: room.id, user_id: user.id)
   end
 
   describe 'Validations' do
