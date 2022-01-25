@@ -11,17 +11,27 @@ RSpec.describe Reservation, type: :model do
     end
 
     it 'should allow valid nights' do
-    reservation.nights = nil
-    expect(reservation).to_not be_valid
-  end
+      reservation.nights = nil
+      expect(reservation).to_not be_valid
+    end
 
-   it 'should allow valid nights' do
+    it 'should allow valid nights' do
       reservation.nights = 7
       expect(reservation).to be_valid
     end
 
     it 'should allow valid nights' do
       reservation.nights = 0
+      expect(reservation).to be_valid
+    end
+
+    it 'should allow valid check in' do
+      reservation.check_in = nil
+      expect(reservation).to_not be_valid
+    end
+
+    it 'should allow valid check in' do
+      reservation.check_in = '2022-10-1'
       expect(reservation).to be_valid
     end
   end
