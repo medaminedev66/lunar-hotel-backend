@@ -63,5 +63,15 @@ RSpec.describe Room, type: :model do
       room.city = 'Tanger'*50
       expect(room).to_not be_valid
     end
+
+    it 'should validate the room type' do
+      room.room_type = nil
+      expect(room).to_not be_valid
+    end
+
+    it 'should validate the room type' do
+      room.room_type = 'Master'
+      expect(room).to be_valid
+    end
   end
 end    
