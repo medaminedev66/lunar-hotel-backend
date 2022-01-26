@@ -22,6 +22,7 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'jbuilder', '~> 2.7'
 gem 'rack-cors'
+gem 'rswag'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -38,7 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do

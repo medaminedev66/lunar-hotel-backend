@@ -5,6 +5,10 @@ class Api::V1::ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
+  def show
+    render json: @reservation, status: :ok
+  end
+
   def create
     @reservation = current_user.reservations.new(reservation_params)
 
@@ -30,6 +34,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:nights, :check_in, :check_out, :room_id)
+    params.require(:reservation).permit(:check_in, :check_out, :room_id)
   end
 end

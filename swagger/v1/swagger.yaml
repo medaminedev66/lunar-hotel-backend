@@ -1,0 +1,247 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  "/api/v1/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - Reservations
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: Authorized
+        '401':
+          description: authentication failed
+    post:
+      summary: create reservation
+      tags:
+      - Reservations
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '201':
+          description: successfully authenticated
+        '422':
+          description: invalid request
+        '401':
+          description: authentication failed
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                check_in:
+                  type: date
+                check_out:
+                  type: date
+                room_id:
+                  type: integer
+              required:
+              - check_in
+              - check_out
+              - room_id
+  "/api/v1/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      tags:
+      - Reservations
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: successfully authenticated
+        '401':
+          description: authentication failed
+    delete:
+      summary: delete reservation
+      tags:
+      - Reservations
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: delete reservation
+        '401':
+          description: authentication failed
+  "/api/v1/rooms":
+    get:
+      summary: list rooms
+      tags:
+      - Rooms
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: Authorized
+        '401':
+          description: authentication failed
+    post:
+      summary: create room
+      tags:
+      - Rooms
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '201':
+          description: successful
+        '422':
+          description: invalid request
+        '401':
+          description: authentication failed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                city:
+                  type: string
+                rate:
+                  type: integer
+                room_type:
+                  type: string
+                amenities:
+                  type: string
+                picture:
+                  type: string
+              required:
+              - name
+              - city
+              - rate
+              - room_type
+              - amenities
+              - picture
+  "/api/v1/rooms/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show room
+      tags:
+      - Rooms
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: successfully authenticated
+        '401':
+          description: authentication failed
+    delete:
+      summary: delete room
+      tags:
+      - Rooms
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: delete room
+        '401':
+          description: authentication failed
+  "/users/signup":
+    post:
+      summary: create registration
+      tags:
+      - User Registration
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+  "/users/login":
+    post:
+      summary: create session
+      tags:
+      - Sessions
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/users/logout":
+    delete:
+      summary: delete session
+      tags:
+      - Sessions
+      security:
+      - bearer_auth: []
+      responses:
+        '201':
+          description: Logged Out
+        '401':
+          description: authentication failed
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: lunar-hotel.netlify.app

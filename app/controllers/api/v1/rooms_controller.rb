@@ -1,8 +1,12 @@
 class Api::V1::RoomsController < ApplicationController
-  before_action :set_room, only: :destroy
+  before_action :set_room, only: %i[destroy show]
 
   def index
     @rooms = current_user.rooms.all
+  end
+
+  def show
+    render json: @room, status: :ok
   end
 
   def create
