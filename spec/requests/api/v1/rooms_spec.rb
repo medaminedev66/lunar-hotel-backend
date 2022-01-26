@@ -86,6 +86,7 @@ RSpec.describe 'api/v1/rooms', type: :request do
 
     get('show room') do
       tags 'Rooms'
+      security [bearer_auth: []]
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -98,10 +99,20 @@ RSpec.describe 'api/v1/rooms', type: :request do
         end
         run_test!
       end
+      response '201', 'successfully authenticated' do
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
+        run_test!
+      end
+
+      response '401', 'authentication failed' do
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('bogus:bogus')}" }
+        run_test!
+      end
     end
 
     delete('delete room') do
       tags 'Rooms'
+      security [bearer_auth: []]
       response(200, 'successful') do
         let(:id) { '123' }
 
