@@ -5,10 +5,6 @@ class Api::V1::RoomsController < ApplicationController
     @rooms = current_user.rooms.all
   end
 
-  def show
-    render json: @room, status: :ok
-  end
-
   def create
     @room = current_user.rooms.new(room_params)
 
