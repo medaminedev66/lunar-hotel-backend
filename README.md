@@ -11,6 +11,10 @@
 - Use API end point to get data
 - Fetch data from the API
 
+## Deployment
+
+- Click [here](https://lunar-hotel-backend.herokuapp.com/) to view the documentation of the Lunar Hotel API.
+
 
 ## Built With
 
@@ -34,7 +38,7 @@ To get a local copy up and running follow these simple example steps.
 ### Running The App
 
 - Run ```bundle install``` to install all the necessary gems
-- Run ```rake db:create``` and ```rake db:migrate``` then run ```rails s``` 
+- Run ```rake db:create``` and ```rake db:migrate``` then run ```rails s```
 - Go to the browser and type `localhost:3000` to see the app
 
 ### Test
