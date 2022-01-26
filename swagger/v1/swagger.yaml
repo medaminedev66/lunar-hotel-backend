@@ -10,6 +10,20 @@ components:
       scheme: bearer
       bearerFormat: JWT
 paths:
+  "/api/v1/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - Reservations
+      security:
+      - bearer_auth: []
+      responses:
+        '200':
+          description: successful
+        '201':
+          description: Authorized
+        '401':
+          description: authentication failed
   "/api/v1/rooms":
     get:
       summary: list rooms
@@ -21,7 +35,7 @@ paths:
         '200':
           description: successful
         '201':
-          description: Logged Out
+          description: Authorized
         '401':
           description: authentication failed
     post:
