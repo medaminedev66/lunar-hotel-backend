@@ -24,6 +24,38 @@ paths:
           description: Authorized
         '401':
           description: authentication failed
+    post:
+      summary: create reservation
+      tags:
+      - Reservations
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '201':
+          description: successfully authenticated
+        '422':
+          description: invalid request
+        '401':
+          description: authentication failed
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                check_in:
+                  type: date
+                check_out:
+                  type: date
+                room_id:
+                  type: integer
+              required:
+              - check_in
+              - check_out
+              - room_id
   "/api/v1/rooms":
     get:
       summary: list rooms
