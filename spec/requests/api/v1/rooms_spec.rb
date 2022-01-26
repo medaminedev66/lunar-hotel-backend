@@ -17,7 +17,7 @@ RSpec.describe 'api/v1/rooms', type: :request do
         run_test!
       end
 
-      response '201', 'Logged Out' do
+      response '201', 'Authorized' do
         let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
         run_test!
       end
