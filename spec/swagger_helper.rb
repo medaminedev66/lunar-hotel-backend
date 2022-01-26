@@ -35,7 +35,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'lunar-hotel-backend.herokuapp.com/'
+              default: 'lunar-hotel-backend.herokuapp.com'
             }
           }
         }
