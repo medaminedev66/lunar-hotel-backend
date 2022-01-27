@@ -16,6 +16,15 @@
 - Click [here](https://lunar-hotel-backend.herokuapp.com/) to view the documentation of the Lunar Hotel API.
 
 
+## Kanban board
+
+- Click this [link](https://github.com/medaminedev66/lunar-hotel-backend/projects/1) to view the Kanban board that was used while building this app.
+
+- Click [here](https://user-images.githubusercontent.com/40806126/149196552-b97af233-a0ad-4e9c-9c7a-9e1d84296693.png) to view the initial state of our Kanban board.
+
+- At the end of this project, there are four(4) people in the team.
+
+
 ## Built With
 
 - Ruby on Rails
