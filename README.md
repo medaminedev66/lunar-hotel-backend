@@ -37,7 +37,7 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 - [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)
-- [Rswag]https://github.com/rswag/rswag)
+- [Rswag](https://github.com/rswag/rswag)
 
 ### Setup
 - ```git clone git@github.com:medaminedev66/lunar-hotel-backend.git```
