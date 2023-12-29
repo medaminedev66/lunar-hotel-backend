@@ -1,6 +1,6 @@
 databases:
   - name: my-projects
-    databaseName: questions_39wm
+    databaseName: lunar-hotel
     user: amine
     plan: free
 
