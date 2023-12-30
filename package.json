@@ -15,8 +15,5 @@
     "stylelint-csstree-validator": "^3.0.0",
     "stylelint-scss": "^6.0.0",
     "webpack-dev-server": "^4.15.1"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js"
   }
 }

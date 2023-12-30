@@ -13,7 +13,10 @@
 
 ## Deployment
 
-- Click [here](https://lunar-hotel-backend.herokuapp.com/) to view the documentation of the Lunar Hotel API.
+- Click [here](https://lunar-hotel.onrender.com/index.html) to view the documentation of the Lunar Hotel API.
+
+## Front-end Interface
+You can use this API in conjunction with my front-end introvert or extrovert app: [see the repo](https://github.com/medaminedev66/lunar-hotel-frontend)
 
 
 ## Kanban board
