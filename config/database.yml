@@ -17,7 +17,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -25,7 +24,8 @@ default: &default
 development:
   <<: *default
   database: lunar_hotel_backend_development
-
+  username: postgres
+  password: 123123
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -42,7 +42,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  port: 5433
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -59,7 +59,9 @@ development:
 test:
   <<: *default
   database: lunar_hotel_backend_test
-
+  username: postgres
+  password: 123123
+  port: 5433
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -82,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: lunar_hotel_backend_production
-  username: lunar_hotel_backend
-  password: <%= ENV['LUNAR_HOTEL_BACKEND_DATABASE_PASSWORD'] %>
+  url: <%= ENV["DATABASE_URL"] %>
